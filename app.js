@@ -1,14 +1,16 @@
 const choices = document.querySelectorAll("button");
+const resultDisplay = document.querySelector('#result');
 let choiceArray = ['rock', 'paper', 'scissors'];
 let result = '';
 let userChoice;
 let computerChoice;
 
+
 choices.forEach(choice => choice.addEventListener('click', e => {
     computerChoice = choiceArray[Math.floor(Math.random() * 3)];
     userChoice = e.target.id
     game(userChoice,computerChoice)
-    console.log(result);
+    resultDisplay.innerHTML = result
 }));
 
 function game (userChoice, computerChoice) {
