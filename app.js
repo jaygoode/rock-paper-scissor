@@ -1,6 +1,7 @@
 const choices = document.querySelectorAll("button");
 const resultDisplay = document.querySelector('#result');
 const scoreDisplay = document.querySelector('#score');
+const restartButton = document.querySelector('#restart');
 
 let choiceArray = ['rock', 'paper', 'scissors'];
 let result = '';
@@ -11,12 +12,15 @@ let computerScore = 0;
 
 choices.forEach(choice => choice.addEventListener('click', e => {
     computerChoice = choiceArray[Math.floor(Math.random() * 3)];
+    
     userChoice = e.target.id
+    restart()
     game(userChoice,computerChoice)
     resultDisplay.innerHTML = result
     scoreDisplay.innerHTML = `user: ${userScore} computer: ${computerScore}`
     console.log(computerScore)
 }));
+
 
 function game (userChoice, computerChoice) {
     console.log(userChoice);
@@ -34,3 +38,13 @@ function game (userChoice, computerChoice) {
     }
 }
 
+
+function restart() {
+if(userChoice == 'restart') { 
+    result=""
+    userChoice=""
+    computerChoice=""
+    userScore=0;
+    computerScore=0;
+}
+}
