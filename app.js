@@ -14,8 +14,8 @@ choices.forEach(choice => choice.addEventListener('click', e => {
     computerChoice = choiceArray[Math.floor(Math.random() * 3)];
     
     userChoice = e.target.id
-    restart()
     game(userChoice,computerChoice)
+    restart()
     resultDisplay.innerHTML = result
     scoreDisplay.innerHTML = `user: ${userScore} computer: ${computerScore}`
     console.log(computerScore)
@@ -41,7 +41,7 @@ function game (userChoice, computerChoice) {
 
 function restart() {
 if(userChoice == 'restart') { 
-    result=""
+    result="RESULT:"
     userChoice=""
     computerChoice=""
     userScore=0;
