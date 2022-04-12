@@ -16,8 +16,9 @@ choices.forEach(choice => choice.addEventListener('click', e => {
     userChoice = e.target.id
     game(userChoice,computerChoice)
     restart()
-    resultDisplay.innerHTML = result
-    scoreDisplay.innerHTML = `user: ${userScore} computer: ${computerScore}`
+    resultDisplay.textContent = result
+    scoreDisplay.textContent = `user: ${userScore} computer: ${computerScore}`
+    gameover()
     console.log(computerScore)
 }));
 
@@ -47,4 +48,14 @@ if(userChoice == 'restart') {
     userScore=0;
     computerScore=0;
 }
+}
+
+function gameover() {
+    if (userScore >= 5) {
+        scoreDisplay.textContent = 'YOU WIN!!'
+        restartButton.style.backgroundColor = 'green';
+    } else if (computerScore >= 5) {
+        scoreDisplay.textContent= 'YOU LOSE!!'
+        restartButton.style.backgroundColor = 'red';
+    }
 }
